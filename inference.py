@@ -83,6 +83,7 @@ def predict(image_path):
     image = prepare_image(image, target_size=(224, 224))
 
     preds = F.softmax(model(image), dim=1)
+    # adapt number of results k as needed
     results = torch.topk(preds.cpu().data, k=6, dim=1)
     results = (results[0].cpu().numpy(), results[1].cpu().numpy())
     data['predictions'] = list()
