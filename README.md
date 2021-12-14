@@ -19,6 +19,8 @@ pip install json
 ```
 python inference.py
 ```
+7. Find results in `Output.txt`
+
 
 ## References
 Van Horn G, Cole E, Beery S, Wilber K, Belongie S, Mac Aodha O, et al. (2021) Benchmarking Representation Learning for Natural World Image Collections. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition 12884‑12893. http://arxiv-export-lb.library.cornell.edu/pdf/2103.16483
