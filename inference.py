@@ -1,43 +1,28 @@
 import io
 import os
 import operator
-import flask
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from PIL import Image
 from torchvision import transforms as T
 from torchvision import transforms, models
-
-# Just needed for iNat_2018_Inception model
-# from inception import *
-
 import json
+
 
 # load labels extracted from annotations to find at https://github.com/visipedia/inat_comp/tree/master/2021
 with open('categories_inat2021.json') as f:
   categories = json.load(f)
 
 
-app = flask.Flask(__name__)
 model = None
 use_gpu = False
 
 def load_model():
     global model
-    # print('test1')
-    # model = inception_v3(pretrained=False)
-    # model.fc = nn.Linear(2048, 8142)
-    # model.aux_logits = False
-    # model = model.to('cpu')
-
-    # checkpoint = torch.load('../iNat_2018_InceptionV3.pth.tar', map_location='cpu')
-    # print('test')
-    # state_dict = checkpoint['state_dict']
-    # model.load_state_dict(state_dict)
 
     # TODO: Download pre-trained models from https://github.com/EibSReM/newt/tree/main/benchmark
-    model_weights_fp = '../iNaturalist_competition_21\cvpr21_newt_pretrained_models\cvpr21_newt_pretrained_models\pt\inat2021_supervised_large_from_scratch.pth.tar'
+    model_weights_fp = '..\cvpr21_newt_pretrained_models\cvpr21_newt_pretrained_models\pt\inat2021_supervised_large_from_scratch.pth.tar'
     model = models.resnet50(pretrained=False)
     model.fc = torch.nn.Linear(model.fc.in_features, 10000)
     checkpoint = torch.load(model_weights_fp, map_location="cpu")
@@ -73,11 +58,6 @@ def predict(image_path):
 
     data = {"success": False}
 
-    # TODO: create species.txt
-    # with open('species.txt', 'r') as f:
-    # idx2label = eval(f.read())
-
-    
     image = open(image_path, 'rb').read()
     image = Image.open(io.BytesIO(image))
     image = prepare_image(image, target_size=(224, 224))
@@ -101,7 +81,6 @@ def predict(image_path):
     output_string=output_string+image_path +'\t'
     
     for (i, result) in enumerate(data['predictions']):
-        #print(' {}: {:.4f}'.format(result['label'],result['probability']),end ="\t")
         output_string=output_string+'{}'.format(result['label'])+'\t' +'{:.4f}'.format(result['probability'])+'\t'
 
     return output_string
@@ -109,16 +88,10 @@ def predict(image_path):
     
         
 if __name__ == '__main__':
-    #parser = argparse.ArgumentParser(description='Classification')
-    #parser.add_argument('--file', type=str, help='image file')
-
-    #args = parser.parse_args()
-    #string = predict_result(args.file)
-
     load_model()
     
     # TODO: adjust image path
-    mypath='/path/to/images'
+    mypath='path/to/images/'
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
