@@ -1,6 +1,6 @@
 # iNaturalist_Competition
 
-Script to classify images of plants and animals with the image-based species recognition models created in the context of the paper by [Van Horn et al. 2021](http://arxiv-export-lb.library.cornell.edu/pdf/2103.16483), benchmarking different kinds of models created on basis of the dataset of the [iNaturalist 2021 Comptetition](https://github.com/visipedia/inat_comp/tree/master/2021). 
+Script to classify images of plants and animals with the image-based species recognition models created in the context of the paper by [Van Horn et al. 2021](http://arxiv-export-lb.library.cornell.edu/pdf/2103.16483), benchmarking different kinds of models created on basis of the dataset of the [iNaturalist 2021 Comptetition](https://github.com/visipedia/inat_comp/tree/master/2021). The code was extracted from this [repository](https://github.com/deblagoj/iNaturalist-API) by [deblagoj](https://github.com/deblagoj) as a contribution to the iNaturalist 2017 Competition.
 
 ## How-To
 
