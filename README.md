@@ -6,22 +6,22 @@ Script to classify images of plants and animals with the image-based species rec
 
 1. (recommended but not absolutely necessary) create and activate own (conda) environment 
 2. install packages 
-```
-pip install torch torchvision 
-```
+   ```
+   pip install torch torchvision 
+   ```
 3. Clone this repository 
-```
-git clone https://github.com/EibSReM/iNaturalist_Competition.git
-``` 
-and change to respective directory
+   ```
+   git clone https://github.com/EibSReM/iNaturalist_Competition.git
+   ``` 
+   and change to respective directory
 5. Download pretrained models from the paper [here](https://cornell.box.com/s/bnyhq5lwobu6fgjrub44zle0pyjijbmw), mentioned in the [papers repository](https://github.com/visipedia/newt/tree/main/benchmark).
 6. Adapt path to pytorch model and images (folder) in the `inference.py` script (we used the model in: cvpr21_newt_pretrained_models\cvpr21_newt_pretrained_models\pt\inat2021_supervised_large_from_scratch.pth.tar)
 7. Run script 
-```
-python inference.py
-```
+   ```
+   python inference.py
+   ```
 8. Find results in `Output.txt`
 
-
 ## References
+
 Van Horn G, Cole E, Beery S, Wilber K, Belongie S, Mac Aodha O, et al. (2021) Benchmarking Representation Learning for Natural World Image Collections. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition 12884‑12893. http://arxiv-export-lb.library.cornell.edu/pdf/2103.16483
