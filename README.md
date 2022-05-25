@@ -14,13 +14,17 @@ pip install torch torchvision
 git clone https://github.com/EibSReM/iNaturalist_Competition.git
 ``` 
 and change to respective directory
-5. Download pretrained models from the paper [here](https://cornell.box.com/s/bnyhq5lwobu6fgjrub44zle0pyjijbmw), mentioned in the [papers repository](https://github.com/visipedia/newt/tree/main/benchmark).
-6. Adapt path to pytorch model and images (folder) in the `inference.py` script (we used the model in: cvpr21_newt_pretrained_models\cvpr21_newt_pretrained_models\pt\inat2021_supervised_large_from_scratch.pth.tar)
-7. Run script 
+
+4. Download pretrained models from the paper [here](https://cornell.box.com/s/bnyhq5lwobu6fgjrub44zle0pyjijbmw), mentioned in the [papers repository](https://github.com/visipedia/newt/tree/main/benchmark).
+
+5. Adapt path to pytorch model and images (folder) in the `inference.py` script (we used the model in: cvpr21_newt_pretrained_models\cvpr21_newt_pretrained_models\pt\inat2021_supervised_large_from_scratch.pth.tar)
+
+6. Run script 
 ```
 python inference.py
 ```
-8. Find results in `Output.txt`
+
+7. Find results in `Output.txt`
 
 
 ## References
