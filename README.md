@@ -15,6 +15,7 @@ pip install torch torchvision
   Run in the repository:
   ```
   conda env create -f environment.yml
+  conda activate inat_2021
   ```
 
 3. Clone this repository 
