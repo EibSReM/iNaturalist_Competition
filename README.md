@@ -11,6 +11,12 @@ Script to classify images of plants and animals with the image-based species rec
 pip install torch torchvision 
 ```
 
+  2.1 Actually this should work, otherwise you can also use the provided conda environment file `environment.yml`. 
+  Run in the repository:
+  ```
+  conda env create -f environment.yml
+  ```
+
 3. Clone this repository 
 ```
 git clone https://github.com/EibSReM/iNaturalist_Competition.git
