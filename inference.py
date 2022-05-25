@@ -8,6 +8,7 @@ from PIL import Image
 from torchvision import transforms as T
 from torchvision import transforms, models
 import json
+import time
 
 
 # load labels extracted from annotations to find at https://github.com/visipedia/inat_comp/tree/master/2021
@@ -18,11 +19,15 @@ with open('categories_inat2021.json') as f:
 model = None
 use_gpu = False
 
+# TODO: adapt path to images folder
+image_path = '../images/iNat2021/general/'
+
 def load_model():
     global model
 
     # TODO: Download pre-trained models from https://github.com/EibSReM/newt/tree/main/benchmark
-    model_weights_fp = '..\cvpr21_newt_pretrained_models\cvpr21_newt_pretrained_models\pt\inat2021_supervised_large_from_scratch.pth.tar'
+    # TODO: adapt path to respective model
+    model_weights_fp = 'cvpr21_newt_pretrained_models.tar\cvpr21_newt_pretrained_models\pt\inat2021_supervised_large_from_scratch.pth.tar'
     model = models.resnet50(pretrained=False)
     model.fc = torch.nn.Linear(model.fc.in_features, 10000)
     checkpoint = torch.load(model_weights_fp, map_location="cpu")
@@ -88,10 +93,11 @@ def predict(image_path):
     
         
 if __name__ == '__main__':
+    start = time.time()
     load_model()
     
     # TODO: adjust image path
-    mypath='path/to/images/'
+    mypath=image_path
     from os import listdir
     from os.path import isfile, join
     onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
@@ -110,3 +116,7 @@ if __name__ == '__main__':
     text_file = open("Output.txt", "w")
     text_file.write(output_all)
     text_file.close()
+
+    end = time.time()
+    total_time = end - start
+    print("total runtime: " + str(total_time))
