@@ -43,6 +43,8 @@ Classifying 258 images, the script run 81.02 seconds on a Windows 10 notebook wi
 * Intel(R) Core(TM) i7-8565U CPU @ 1.80GHz   1.99 GHz
 * 20 GB Ram
 
+## Approach Demo 
+In the folder [demo](/demo/) you can find a couple of images and a README with the expected results for demonstration purposes. 
 
 ## References
 Van Horn G, Cole E, Beery S, Wilber K, Belongie S, Mac Aodha O, et al. (2021) Benchmarking Representation Learning for Natural World Image Collections. Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition 12884‑12893. http://arxiv-export-lb.library.cornell.edu/pdf/2103.16483
